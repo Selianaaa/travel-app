@@ -17,3 +17,5 @@ Install dependencies
 
 To run server write following command in root directory:
 `node server.js`
+
+<!-- in env set up our keys for apis-->
