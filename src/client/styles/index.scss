@@ -1,0 +1,31 @@
+// @import './_header.scss';
+// @import './_form.scss';
+// @import './_preloader.scss';
+// @import './_result.scss';
+// @import './_footer.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: $main_color;
+  color: white;
+  @include baseColumn;
+}
+
+main {
+  flex: 1;
+  @include baseColumn;
+  justify-content: center;
+  padding: 40px 30px;
+
+  @include mobileScreen {
+    padding: 30px 15px;
+  }
+}
