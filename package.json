@@ -1,0 +1,37 @@
+{
+  "name": "travel-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Selianaaa/travel-app.git",
+  "author": "seliana <cany96@bk.ru>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "server": "node src/server/server.js",
+    "build:prod": "webpack --config config/webpack.prod.js",
+    "dev": "webpack serve --config config/webpack.dev.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "cors": "^2.8.5",
+    "css-loader": "^6.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "node-fetch": "^2.6.1",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "prettier": "^2.3.2",
+    "sass-loader": "^12.1.0",
+    "sass-resources-loader": "^2.2.3",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "style-loader": "^3.1.0"
+  }
+}
