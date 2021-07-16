@@ -10,7 +10,7 @@ module.exports = {
   entry: './src/client/js/index.js',
   output: {
     libraryTarget: 'var',
-    library: 'Client',
+    library: 'TravelClient',
   },
   mode: 'production',
   optimization: {

@@ -2,16 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/client/js/index.js',
   output: {
     libraryTarget: 'var',
-    library: 'Client',
+    library: 'TravelClient',
   },
   devServer: {
     injectClient: false,
+    port: 3003,
   },
   mode: 'development',
   devtool: 'source-map',
@@ -52,6 +53,6 @@ module.exports = {
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
     }),
-    new WorkboxPlugin.GenerateSW(),
+    // new WorkboxPlugin.GenerateSW(),
   ],
 };

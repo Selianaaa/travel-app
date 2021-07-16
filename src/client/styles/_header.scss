@@ -1,0 +1,22 @@
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: $second_color;
+
+  @include mobileScreen {
+    padding: 14px 20px;
+  }
+}
+
+.header_title {
+  @include baseText(18px, 600);
+  color: white;
+  text-transform: uppercase;
+
+  @include mobileScreen {
+    font-size: 16px;
+  }
+}

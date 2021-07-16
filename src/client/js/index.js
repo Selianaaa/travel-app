@@ -1,4 +1,16 @@
-// import {} from './helpers';
+import {
+  handleSubmit,
+  getArticleAnalysis,
+  displayArticleAnalysis,
+  showPreloader,
+  showResult,
+} from './helpers';
 import '../styles/index.scss';
 
-// export {};
+export {
+  handleSubmit,
+  getArticleAnalysis,
+  displayArticleAnalysis,
+  showPreloader,
+  showResult,
+};

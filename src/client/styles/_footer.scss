@@ -1,0 +1,19 @@
+footer {
+  position: relative;
+  width: 100%;
+  background: $second_color;
+  padding: 20px 30px;
+
+  @include mobileScreen {
+    padding: 20px;
+  }
+}
+
+.footer_text {
+  @include baseText(16px, 600);
+  color: white;
+
+  @include mobileScreen {
+    font-size: 14px;
+  }
+}
