@@ -1,7 +1,7 @@
 footer {
   position: relative;
   width: 100%;
-  background: $second_color;
+  background: color('orange');
   padding: 20px 30px;
 
   @include mobileScreen {
@@ -10,10 +10,10 @@ footer {
 }
 
 .footer_text {
-  @include baseText(16px, 600);
+  @include baseText(14px, 400);
   color: white;
 
   @include mobileScreen {
-    font-size: 14px;
+    font-size: 12px;
   }
 }

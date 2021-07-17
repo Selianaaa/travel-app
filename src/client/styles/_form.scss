@@ -3,8 +3,9 @@
   width: 400px;
   padding: 30px;
   border-radius: 23px;
-  background: $main_color;
-  box-shadow: 5px 5px 14px $dark_shadow, -4px -4px 14px $light_shadow;
+  background: color('yellow');
+  box-shadow: 5px 5px 14px color('yellow_dark'),
+    -4px -4px 14px color('yellow_light');
 
   @include mobileScreen {
     width: 280px;
@@ -24,43 +25,46 @@
   border: none;
   outline: none;
   border-radius: 7px;
-  background: $main_color;
+  background: color('yellow');
 }
 
 .url_input {
   align-self: stretch;
   height: 30px;
   padding: 5px 20px;
-  box-shadow: inset 2px 2px 4px $dark_shadow, inset -2px -2px 4px $light_shadow;
+  box-shadow: inset 2px 2px 4px color('yellow_dark'),
+    inset -2px -2px 4px color('yellow_light');
 
   &::placeholder {
-    color: $text_color;
+    color: color('white');
     font-size: 15px;
     font-weight: 400;
   }
 
   &:focus {
-    box-shadow: inset 4px 4px 4px $dark_shadow,
-      inset -4px -4px 4px $light_shadow;
+    box-shadow: inset 4px 4px 4px color('yellow_dark'),
+      inset -4px -4px 4px color('yellow_light');
   }
 }
 
 .submit_button {
   margin-top: 25px;
   padding: 10px 30px;
-  box-shadow: 2px 2px 4px $dark_shadow, -2px -2px 4px $light_shadow;
+  box-shadow: 2px 2px 4px color('yellow_dark'),
+    -2px -2px 4px color('yellow_light');
   text-transform: uppercase;
   @include baseText(18px, 700);
-  color: $text_color;
+  color: color('white');
   cursor: pointer;
 
   &:hover {
-    box-shadow: -2px 2px 4px $dark_shadow, 2px -2px 4px $light_shadow;
+    box-shadow: -2px 2px 4px color('yellow_dark'),
+      2px -2px 4px color('yellow_light');
   }
 
   &:active {
-    box-shadow: inset 2px 2px 4px $dark_shadow,
-      inset -2px -2px 4px $light_shadow;
+    box-shadow: inset 2px 2px 4px color('yellow_dark'),
+      inset -2px -2px 4px color('yellow_light');
   }
 }
 
@@ -75,8 +79,8 @@
   }
 
   &:focus {
-    background: $main_color;
-    box-shadow: inset 4px 4px 4px $dark_shadow,
-      inset -4px -4px 4px $light_shadow;
+    background: color('yellow');
+    box-shadow: inset 4px 4px 4px color('yellow_dark'),
+      inset -4px -4px 4px color('yellow_light');
   }
 }

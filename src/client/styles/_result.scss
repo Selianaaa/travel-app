@@ -4,8 +4,9 @@
   width: 400px;
   height: 240px;
   border-radius: 23px;
-  background: $main_color;
-  box-shadow: 5px 5px 14px $dark_shadow, -4px -4px 14px $light_shadow;
+  background: color('yellow');
+  box-shadow: 5px 5px 14px color('yellow_dark'),
+    -4px -4px 14px color('yellow_light');
   @include baseColumn;
 
   @include mobileScreen {

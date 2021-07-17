@@ -1,11 +1,5 @@
-$main_color: #d4a1bc;
-$second_color: #3f3131;
-$dark_shadow: #b489a0;
-$light_shadow: #f4b9d8;
-$text_color: #2b0329;
-
 // error
-$text_color_error: white;
+$text_color_error: #f25a92;
 $dark_shadow_error: #aa222f;
 $light_shadow_error: #ff3e57;
 
@@ -14,3 +8,16 @@ $preloader_color: #2b0329;
 
 // screen
 $mobile_width: 620px;
+
+$colors: (
+  'white': #ffffff,
+  'white_deep': #dbd7d7,
+  'orange': #f2875a,
+  'yellow': #f2ba5a,
+  'yellow_dark': #dca952,
+  'yellow_light': #ffcb62,
+);
+
+@function color($key) {
+  @return map-get($map: $colors, $key: $key);
+}

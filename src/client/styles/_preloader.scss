@@ -9,7 +9,7 @@
     -2px -2px 5px rgba(244, 185, 216, 0.555),
     inset 2px 2px 5px rgba(180, 137, 160, 0.521),
     inset -2px -2px 5px rgba(244, 185, 216, 0.555);
-  border: 5px solid $main_color;
+  border: 5px solid color('yellow');
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@
 
 @keyframes first_glow {
   60% {
-    background-color: $main_color;
+    background-color: color('yellow');
   }
   80% {
     background-color: $preloader_color;
@@ -48,7 +48,7 @@
 
 @keyframes second_glow {
   40% {
-    background-color: $main_color;
+    background-color: color('yellow');
   }
   60% {
     background-color: $preloader_color;
@@ -60,7 +60,7 @@
 
 @keyframes third_glow {
   20% {
-    background-color: $main_color;
+    background-color: color('yellow');
   }
   40% {
     background-color: $preloader_color;
