@@ -10,6 +10,7 @@ import {
   // showPreloader,
   LSActions,
   removeTripFromLS,
+  getDayDifference,
 } from './helpers';
 import '../styles/index.scss';
 
@@ -24,5 +25,6 @@ export {
   addRigthCardContent,
   addTrip,
   removeTripFromLS,
+  getDayDifference,
   // showPreloader,
 };

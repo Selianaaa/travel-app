@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const serverUrl = 'http://localhost:8081';
 
 /**
@@ -50,6 +52,19 @@ export const removeTripFromLS = (elementId) => {
     newLsTrips.splice(elementIndex, 1);
     TravelClient.LSActions.saveByKey('trips', newLsTrips);
   }
+};
+
+/**
+ * Get days difference
+ */
+export const getDayDifference = (date) => {
+  const currentMoment = moment();
+  const tripMoment = moment(date);
+  const momentDifference = moment.duration(tripMoment.diff(currentMoment));
+
+  const daysDifference = Math.floor(momentDifference.asDays());
+
+  return daysDifference;
 };
 
 // export const showPreloader = () => {
