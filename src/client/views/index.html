@@ -13,23 +13,45 @@
   <body>
     <header>
       <div class="header_title">Travel Planner</div>
-      <button class="desktop_header_button">Add trip</button>
-      <button class="mobile_header_button">+</button>
+      <button
+        class="desktop_header_button"
+        onclick="return TravelClient.addTrip(event)"
+      >
+        Add trip
+      </button>
+      <button
+        class="mobile_header_button"
+        onclick="return TravelClient.addTrip(event)"
+      >
+        +
+      </button>
     </header>
 
     <main>
-      <section class="card">
+      <section id="add_modal">
+        <div
+          id="close_modal"
+          onclick="return TravelClient.closeModal(event)"
+        ></div>
         <form
           class="card_form"
           onsubmit="return TravelClient.handleSubmit(event)"
         >
           <input
-            id="url"
+            id="location"
             type="text"
             name="input"
-            value=""
-            placeholder="Article Url"
-            class="url_input"
+            value="london"
+            placeholder="Enter Location"
+          />
+          <input
+            id="departing"
+            type="text"
+            name="input"
+            value="2021-10-20"
+            placeholder="Enter Departing Date"
+            onfocus="(this.type='date')"
+            onblur="(this.value.length > 0 ? this.type='date': this.type='text')"
           />
           <input
             type="submit"
@@ -40,24 +62,6 @@
             onsubmit="return TravelClient.handleSubmit(event)"
           />
         </form>
-      </section>
-
-      <section class="result_wrapper">
-        <div class="result_text">Analysis Results:</div>
-        <div id="preloader">
-          <div class="preloader_ring first_ring">
-            <div class="preloader_ring second_ring">
-              <div class="preloader_ring third_ring"></div>
-            </div>
-          </div>
-        </div>
-        <div id="results">
-          <p id="agreement">Agreement: <span></span></p>
-          <p id="confidence">Confidence: <span></span></p>
-          <p id="irony">Irony: <span></span></p>
-          <p id="score">Score: <span></span></p>
-          <p id="subjectivity">Subjectivity: <span></span></p>
-        </div>
       </section>
     </main>
 

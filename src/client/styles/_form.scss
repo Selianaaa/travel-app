@@ -1,14 +1,48 @@
-.card {
-  position: relative;
+#add_modal {
+  position: absolute;
+  // display: none;
   width: 400px;
-  padding: 30px;
+  padding: 50px 40px;
   border-radius: 23px;
-  background: color('yellow');
-  box-shadow: 5px 5px 14px color('yellow_dark'),
-    -4px -4px 14px color('yellow_light');
+  background: color('blue');
+  box-shadow: 2px 2px 4px color('blue_dark');
+  z-index: 1000;
+  // transition: display 4s;
 
   @include mobileScreen {
     width: 280px;
+  }
+}
+
+#close_modal {
+  position: absolute;
+  top: 15px;
+  right: 7px;
+  height: 20px;
+  width: 20px;
+  z-index: 100;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:before,
+  &::after {
+    content: ' ';
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background-color: color('white');
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
 
@@ -20,20 +54,22 @@
   height: 100%;
 }
 
-.url_input,
+#location,
+#departing,
 .submit_button {
   border: none;
   outline: none;
   border-radius: 7px;
-  background: color('yellow');
+  background: color('blue');
 }
 
-.url_input {
+#location,
+#departing {
   align-self: stretch;
   height: 30px;
   padding: 5px 20px;
-  box-shadow: inset 2px 2px 4px color('yellow_dark'),
-    inset -2px -2px 4px color('yellow_light');
+  box-shadow: inset 8px 8px 4px color('blue_dark'),
+    inset -8px -8px 4px color('blue_light');
 
   &::placeholder {
     color: color('white');
@@ -42,45 +78,61 @@
   }
 
   &:focus {
-    box-shadow: inset 4px 4px 4px color('yellow_dark'),
-      inset -4px -4px 4px color('yellow_light');
+    box-shadow: inset 4px 4px 4px color('blue_dark'),
+      inset -4px -4px 4px color('blue_light');
+  }
+}
+
+#departing {
+  margin-top: 20px;
+  color: #fff;
+  &:before {
+    color: #414141;
+    content: attr(placeholder);
+  }
+  &:focus,
+  &:valid {
+    color: #414141;
+    &:before {
+      content: '' !important;
+    }
   }
 }
 
 .submit_button {
   margin-top: 25px;
   padding: 10px 30px;
-  box-shadow: 2px 2px 4px color('yellow_dark'),
-    -2px -2px 4px color('yellow_light');
+  box-shadow: 8px 8px 4px color('blue_dark'), -8px -8px 4px color('blue_light');
   text-transform: uppercase;
   @include baseText(18px, 700);
   color: color('white');
   cursor: pointer;
 
   &:hover {
-    box-shadow: -2px 2px 4px color('yellow_dark'),
-      2px -2px 4px color('yellow_light');
+    box-shadow: -8px 8px 4px color('blue_dark'),
+      8px -8px 4px color('blue_light');
   }
 
   &:active {
-    box-shadow: inset 2px 2px 4px color('yellow_dark'),
-      inset -2px -2px 4px color('yellow_light');
+    box-shadow: inset 8px 8px 4px color('blue_dark'),
+      inset -8px -8px 4px color('blue_light');
   }
 }
 
-.url_error {
-  background: #f33043;
+// #location,
+// #departing {
+//   background: #f33043;
 
-  box-shadow: inset 5px 5px 10px $dark_shadow_error,
-    inset -5px -5px 10px $light_shadow_error;
+//   box-shadow: inset 5px 5px 10px $dark_shadow_error,
+//     inset -5px -5px 10px $light_shadow_error;
 
-  &::placeholder {
-    color: $text_color_error;
-  }
+//   &::placeholder {
+//     color: $text_color_error;
+//   }
 
-  &:focus {
-    background: color('yellow');
-    box-shadow: inset 4px 4px 4px color('yellow_dark'),
-      inset -4px -4px 4px color('yellow_light');
-  }
-}
+//   &:focus {
+//     background: color('blue');
+//     box-shadow: inset 4px 4px 4px color('blue_dark'),
+//       inset -4px -4px 4px color('blue_light');
+//   }
+// }

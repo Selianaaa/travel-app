@@ -4,9 +4,13 @@
 export const handleSubmit = (event) => {
   event.preventDefault();
 
-  const articleUrl = document.getElementById('url').value;
-  document.querySelector('#url').classList.remove('url_error');
+  const location = document.getElementById('location').value.toLowerCase();
+  const departing = document.getElementById('departing').value;
 
-  TravelClient.showPreloader();
-  TravelClient.getArticleAnalysis(articleUrl);
+  const locationIsValid = TravelClient.locationIsValid(location);
+  const dateIsValid = TravelClient.dateIsValid(departing);
+
+  if (locationIsValid && dateIsValid) {
+    TravelClient.getLocationInfo(location, departing);
+  }
 };

@@ -2,38 +2,72 @@ var path = require('path');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const fetch = require('node-fetch');
+const { services } = require('./_services.js');
 
 dotenv.config();
-const apiKey = process.env.API_KEY;
-const baseApiUrl = 'https://api.meaningcloud.com/sentiment-2.1';
-
-console.log(`Your API key is ${process.env.API_KEY}`);
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({ credentials: true }));
 app.use(express.static('dist'));
+
+app.listen(8081, function () {
+  console.log('Example app listening on port 8081!');
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.resolve('dist/index.html'));
 });
 
-// designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-  console.log('Example app listening on port 8081!');
+app.get('/get_location_info', async (req, res) => {
+  let locationData = {
+    city: req.query.location,
+  };
+
+  await services
+    .getGeonames(req.query.location)
+    .then((res) => {
+      const { lat, lng, toponymName, countryName } = res.data.geonames[0];
+      locationData = {
+        ...locationData,
+        city: toponymName,
+        countryName,
+        lat,
+        lng,
+      };
+      console.log(locationData);
+    })
+    .catch((error) => {
+      console.log('error: ', error.message);
+      return res.status(400).send({
+        message: error.message,
+      });
+    });
+
+  await services
+    .getWeather(38.123, -78.543)
+    .then((res) => {
+      const { temp, weather } = res.data.data[0];
+      locationData = {
+        ...locationData,
+        temp,
+        weather,
+      };
+    })
+    .catch((error) => {
+      console.log('error: ', error.message);
+      return res.status(400).send({
+        message: error.message,
+      });
+    });
+
+  res.status(200).send(locationData);
 });
 
-app.get('/check_article', async (req, res) => {
-  console.log(req.query);
-  try {
-    const apiResponce = await fetch(
-      `${baseApiUrl}?key=${apiKey}&url=${req.query.articleUrl}&lang=en`
-    );
-    const apiData = await apiResponce.json();
+// const response = await services.getWeather(38.123, -78.543);
+// const data = await response.data;
 
-    res.status(200).send(apiData);
-  } catch (error) {
-    console.log('error', error);
-  }
-});
+// res.status(200).send(locationData);
+// } catch (error) {
+//   console.log('error', error);
+// }

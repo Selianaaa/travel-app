@@ -1,6 +1,10 @@
 import {
+  addTrip,
+  closeModal,
+  dateIsValid,
+  locationIsValid,
   handleSubmit,
-  getArticleAnalysis,
+  getLocationInfo,
   displayArticleAnalysis,
   showPreloader,
   showResult,
@@ -8,8 +12,12 @@ import {
 import '../styles/index.scss';
 
 export {
+  addTrip,
+  closeModal,
+  dateIsValid,
+  locationIsValid,
   handleSubmit,
-  getArticleAnalysis,
+  getLocationInfo,
   displayArticleAnalysis,
   showPreloader,
   showResult,
