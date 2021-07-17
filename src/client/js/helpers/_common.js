@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { LSActions, addTrip } from '../helpers';
+import { LSActions, addTrip, openModal } from '../helpers';
 const serverUrl = 'http://localhost:8081';
 
 /**
@@ -27,9 +27,11 @@ export const getLocationInfo = (location, departing) => {
 export const displayLsTrips = () => {
   const lsTrips = LSActions.getByKey('trips');
 
-  if (!lsTrips) return;
+  if (!lsTrips) return openModal();
+  const newLsTrips = lsTrips.slice();
+  localStorage.clear();
 
-  lsTrips.forEach((trip) => addTrip(trip));
+  newLsTrips.forEach((trip) => getLocationInfo(trip.location, trip.departing));
 };
 
 /**

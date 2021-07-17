@@ -13,39 +13,16 @@
   <body>
     <header>
       <div class="header_title">Travel Planner</div>
-      <button class="desktop_header_button" onclick="return openModal(event)">
-        Add trip
-      </button>
-      <button class="mobile_header_button" onclick="return openModal()">
-        +
-      </button>
+      <button class="desktop_header_button">Add trip</button>
+      <button class="mobile_header_button">+</button>
     </header>
 
     <main>
-      <section id="trips">
-        <div id="trip1" class="trip">
-          <div class="cancel_button"></div>
-          <div class="trip_location">London, Great Britain</div>
-          <div class="trip_content">
-            <div class="left_content"></div>
-            <div class="right_content">
-              <div class="trip_departing">
-                Departing: <span>21-01-1998</span>
-              </div>
+      <section id="trips"></section>
 
-              <div class="trip_days_amount">
-                Days before trip: <span>35</span>
-              </div>
-            </div>
-          </div>
-          <div class="trip_weather">
-            Current Weather: <span>35°C, Clear sky</span>
-          </div>
-        </div>
-      </section>
       <section id="modal">
-        <div class="cancel_button" onclick="return closeModal()"></div>
-        <form class="card_form" onsubmit="return handleSubmit(event)">
+        <div class="cancel_button" id="modal_close"></div>
+        <form class="card_form">
           <input
             id="location"
             type="text"
@@ -64,11 +41,10 @@
           />
           <input
             type="submit"
+            id="submit"
             name=""
             value="submit"
             class="submit_button"
-            onclick="return handleSubmit(event)"
-            onsubmit="return handleSubmit(event)"
           />
         </form>
       </section>
@@ -79,6 +55,7 @@
         © 2021 Created by Seliana. All Rights Reserved
       </div>
     </footer>
+
     <script>
       // add service worker
     </script>
