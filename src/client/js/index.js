@@ -5,6 +5,8 @@ import {
   locationIsValid,
   handleSubmit,
   getLocationInfo,
+  addRigthCardContent,
+  addTrip,
   // displayArticleAnalysis,
   // showPreloader,
   // showResult,
@@ -20,6 +22,8 @@ export {
   handleSubmit,
   getLocationInfo,
   LSActions,
+  addRigthCardContent,
+  addTrip,
   // displayArticleAnalysis,
   // showPreloader,
 };

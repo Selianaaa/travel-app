@@ -9,7 +9,7 @@
   background: color('yellow');
   box-shadow: 5px 5px 14px color('yellow_dark'),
     -4px -4px 14px color('yellow_light');
-  @include baseColumn(space-between);
+  @include baseColumn;
   align-items: flex-start;
   // .cancel_button {
   //   &::before,
@@ -61,13 +61,13 @@
 .trip_departing {
   @include baseText(20px, 600);
   span {
-    @include baseText(20px, 400);
+    @include baseText(18px, 400);
   }
 
   @include mobileScreen {
     font-size: 18px;
     span {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 }
