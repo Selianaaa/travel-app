@@ -7,10 +7,9 @@ import {
   getLocationInfo,
   addRigthCardContent,
   addTrip,
-  // displayArticleAnalysis,
   // showPreloader,
-  // showResult,
   LSActions,
+  removeTripFromLS,
 } from './helpers';
 import '../styles/index.scss';
 
@@ -24,6 +23,6 @@ export {
   LSActions,
   addRigthCardContent,
   addTrip,
-  // displayArticleAnalysis,
+  removeTripFromLS,
   // showPreloader,
 };

@@ -1,5 +1,5 @@
 /**
- * Handle submit
+ * Handle submit trip data
  */
 export const handleSubmit = (event) => {
   event.preventDefault();

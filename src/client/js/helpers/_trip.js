@@ -45,7 +45,7 @@ export const addCancelButton = (tripCard) => {
   cancelButton.className = 'cancel_button';
 
   cancelButton.addEventListener('click', (e) => {
-    console.log('cancelButton', e.target.parentNode);
+    TravelClient.removeTripFromLS(e.target.parentNode.id);
     e.target.parentNode.remove();
   });
 
