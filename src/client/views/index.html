@@ -15,23 +15,44 @@
       <div class="header_title">Travel Planner</div>
       <button
         class="desktop_header_button"
-        onclick="return TravelClient.addTrip(event)"
+        onclick="return TravelClient.openModal(event)"
       >
         Add trip
       </button>
       <button
         class="mobile_header_button"
-        onclick="return TravelClient.addTrip(event)"
+        onclick="return TravelClient.openModal()"
       >
         +
       </button>
     </header>
 
     <main>
-      <section id="add_modal">
+      <section id="trips">
+        <div id="trip1" class="trip">
+          <div class="cancel_button"></div>
+          <div class="trip_location">London, Great Britain</div>
+          <div class="trip_content">
+            <div class="left_content"></div>
+            <div class="right_content">
+              <div class="trip_departing">
+                Departing: <span>21-01-1998</span>
+              </div>
+
+              <div class="trip_days_amount">
+                Days before trip: <span>35</span>
+              </div>
+            </div>
+          </div>
+          <div class="trip_weather">
+            Current Weather: <span>35°C, Clear sky</span>
+          </div>
+        </div>
+      </section>
+      <section id="modal">
         <div
-          id="close_modal"
-          onclick="return TravelClient.closeModal(event)"
+          class="cancel_button"
+          onclick="return TravelClient.closeModal()"
         ></div>
         <form
           class="card_form"

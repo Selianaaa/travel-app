@@ -1,5 +1,7 @@
 @import './_header.scss';
-@import './_form.scss';
+@import './_modal.scss';
+@import './_trips.scss';
+@import './_trip.scss';
 @import './_preloader.scss';
 @import './_result.scss';
 @import './_footer.scss';
@@ -20,12 +22,13 @@ body {
 }
 
 main {
+  position: relative;
+  width: 100%;
+  height: 100%;
   flex: 1;
-  @include baseColumn;
-  justify-content: center;
-  padding: 40px 30px;
+  padding: 30px 20px;
 
   @include mobileScreen {
-    padding: 30px 15px;
+    padding: 20px 15px;
   }
 }

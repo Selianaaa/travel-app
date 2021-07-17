@@ -1,6 +1,8 @@
-#add_modal {
+#modal {
   position: absolute;
-  // display: none;
+  top: calc(50% - 140px);
+  left: calc(50% - 200px);
+  display: none;
   width: 400px;
   padding: 50px 40px;
   border-radius: 23px;
@@ -11,10 +13,11 @@
 
   @include mobileScreen {
     width: 280px;
+    left: calc(50% - 140px);
   }
 }
 
-#close_modal {
+.cancel_button {
   position: absolute;
   top: 15px;
   right: 7px;

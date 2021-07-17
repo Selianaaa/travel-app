@@ -1,0 +1,113 @@
+.trip {
+  position: relative;
+  width: 600px;
+  min-height: 240px;
+  margin: 0 10px 40px 10px;
+
+  padding: 40px 25px 25px 25px;
+  border-radius: 23px;
+  background: color('yellow');
+  box-shadow: 5px 5px 14px color('yellow_dark'),
+    -4px -4px 14px color('yellow_light');
+  @include baseColumn(space-between);
+  align-items: flex-start;
+  // .cancel_button {
+  //   &::before,
+  //   &::after {
+  //     background: color('white');
+  //   }
+  // }
+
+  @include mobileScreen {
+    width: 100%;
+  }
+}
+
+.trip_content {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  @include baseRow(space-between);
+  align-items: stretch;
+}
+
+.left_content {
+  position: relative;
+  width: 50%;
+  height: 150px;
+  border: 1px solid red;
+}
+
+.right_content {
+  margin-left: 20px;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  @include baseColumn(flex-end);
+
+  @include mobileScreen {
+    align-items: flex-start;
+  }
+}
+
+.trip_location {
+  @include baseText(24px, 600);
+
+  @include mobileScreen {
+    font-size: 21px;
+  }
+}
+
+.trip_departing {
+  @include baseText(20px, 600);
+  span {
+    @include baseText(20px, 400);
+  }
+
+  @include mobileScreen {
+    font-size: 18px;
+    span {
+      font-size: 18px;
+    }
+  }
+}
+
+.trip_days_amount {
+  margin-top: 10px;
+  @include baseText(16px, 600);
+  span {
+    @include baseText(16px, 400);
+  }
+
+  @include mobileScreen {
+    font-size: 15px;
+    span {
+      font-size: 15px;
+    }
+  }
+}
+
+.trip_weather {
+  margin-top: 25px;
+  @include baseText(18px, 600);
+  span {
+    @include baseText(18px, 400);
+  }
+
+  @include mobileScreen {
+    font-size: 16px;
+    span {
+      font-size: 16px;
+    }
+  }
+}
+
+// city: "London"
+// countryName: "United Kingdom"
+// lat: "51.50853"
+// lng: "-0.12574"
+// temp: 30.6
+// weather: {icon: "c01d", code: 800, description: "Clear sky"}
+// code: 800
+// description: "Clear sky"
+// icon: "c01d"

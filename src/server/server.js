@@ -22,6 +22,8 @@ app.get('/', function (req, res) {
 app.get('/get_location_info', async (req, res) => {
   let locationData = {
     city: req.query.location,
+    departing: req.query.departing,
+    id: req.query.id,
   };
 
   await services
@@ -52,6 +54,7 @@ app.get('/get_location_info', async (req, res) => {
         ...locationData,
         temp,
         weather,
+        // ...res.data.data[0],
       };
     })
     .catch((error) => {
