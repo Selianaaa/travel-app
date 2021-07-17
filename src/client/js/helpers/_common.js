@@ -31,7 +31,7 @@ export const displayLsTrips = () => {
   const newLsTrips = lsTrips.slice();
   localStorage.clear();
 
-  newLsTrips.forEach((trip) => getLocationInfo(trip.location, trip.departing));
+  newLsTrips.forEach((trip) => getLocationInfo(trip.city, trip.departing));
 };
 
 /**

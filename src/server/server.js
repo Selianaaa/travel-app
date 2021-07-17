@@ -47,7 +47,7 @@ app.get('/get_location_info', async (req, res) => {
     });
 
   await services
-    .getWeather(38.123, -78.543)
+    .getWeather(locationData.lat, locationData.lng)
     .then((res) => {
       const { temp, weather } = res.data.data[0];
       locationData = {
