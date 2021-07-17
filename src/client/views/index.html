@@ -13,16 +13,10 @@
   <body>
     <header>
       <div class="header_title">Travel Planner</div>
-      <button
-        class="desktop_header_button"
-        onclick="return TravelClient.openModal(event)"
-      >
+      <button class="desktop_header_button" onclick="return openModal(event)">
         Add trip
       </button>
-      <button
-        class="mobile_header_button"
-        onclick="return TravelClient.openModal()"
-      >
+      <button class="mobile_header_button" onclick="return openModal()">
         +
       </button>
     </header>
@@ -50,14 +44,8 @@
         </div>
       </section>
       <section id="modal">
-        <div
-          class="cancel_button"
-          onclick="return TravelClient.closeModal()"
-        ></div>
-        <form
-          class="card_form"
-          onsubmit="return TravelClient.handleSubmit(event)"
-        >
+        <div class="cancel_button" onclick="return closeModal()"></div>
+        <form class="card_form" onsubmit="return handleSubmit(event)">
           <input
             id="location"
             type="text"
@@ -79,8 +67,8 @@
             name=""
             value="submit"
             class="submit_button"
-            onclick="return TravelClient.handleSubmit(event)"
-            onsubmit="return TravelClient.handleSubmit(event)"
+            onclick="return handleSubmit(event)"
+            onsubmit="return handleSubmit(event)"
           />
         </form>
       </section>
@@ -91,5 +79,8 @@
         © 2021 Created by Seliana. All Rights Reserved
       </div>
     </footer>
+    <script>
+      // add service worker
+    </script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+import { dateIsValid, getLocationInfo } from '../helpers';
+
 /**
  * Handle submit trip data
  */
@@ -7,10 +9,10 @@ export const handleSubmit = (event) => {
   const location = document.getElementById('location').value.toLowerCase();
   const departing = document.getElementById('departing').value;
 
-  const dateIsValid = TravelClient.dateIsValid(departing);
+  const dateValid = dateIsValid(departing);
 
-  if (dateIsValid) {
-    TravelClient.getLocationInfo(location, departing);
-    TravelClient.closeModal();
+  if (dateValid) {
+    getLocationInfo(location, departing);
+    closeModal();
   }
 };

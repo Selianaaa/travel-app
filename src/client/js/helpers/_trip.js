@@ -1,3 +1,4 @@
+import { removeTripFromLS, getDayDifference } from '../helpers';
 /**
  * Add trip
  * @param {Object} data - trip data
@@ -44,7 +45,7 @@ export const addCancelButton = (tripCard) => {
   cancelButton.className = 'cancel_button';
 
   cancelButton.addEventListener('click', (e) => {
-    TravelClient.removeTripFromLS(e.target.parentNode.id);
+    removeTripFromLS(e.target.parentNode.id);
     e.target.parentNode.remove();
   });
 
@@ -123,7 +124,7 @@ export const addRigthCardContent = (tripCard, rightContent, departing) => {
 
   // write funct to count days / if < 0 then opacity on card
   const days = document.createElement('span');
-  const dayDifference = TravelClient.getDayDifference(departing);
+  const dayDifference = getDayDifference(departing);
   days.textContent = dayDifference;
   daysBeforeTrip.appendChild(days);
 

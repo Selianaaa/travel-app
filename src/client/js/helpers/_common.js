@@ -1,5 +1,5 @@
 import moment from 'moment';
-
+import { LSActions, addTrip } from '../helpers';
 const serverUrl = 'http://localhost:8081';
 
 /**
@@ -15,7 +15,7 @@ export const getLocationInfo = (location, departing) => {
     .then((res) => res.json())
     .then(function (res) {
       console.log('getLocationInfo', res);
-      TravelClient.addTrip(res);
+      addTrip(res);
       addTripToLS(res);
     });
 };
@@ -24,18 +24,30 @@ export const getLocationInfo = (location, departing) => {
  * Add trip to local storage
  * @param {Object} data - trip data
  */
+export const displayLsTrips = () => {
+  const lsTrips = LSActions.getByKey('trips');
+
+  if (!lsTrips) return;
+
+  lsTrips.forEach((trip) => addTrip(trip));
+};
+
+/**
+ * Add trip to local storage
+ * @param {Object} data - trip data
+ */
 export const addTripToLS = (data) => {
-  const lsTrips = TravelClient.LSActions.getByKey('trips');
+  const lsTrips = LSActions.getByKey('trips');
 
   if (!lsTrips) {
     const trips = [{ ...data }];
-    return TravelClient.LSActions.saveByKey('trips', trips);
+    return LSActions.saveByKey('trips', trips);
   }
 
   const newLsTrips = lsTrips.slice();
 
   newLsTrips.push({ ...data });
-  TravelClient.LSActions.saveByKey('trips', newLsTrips);
+  LSActions.saveByKey('trips', newLsTrips);
 };
 
 /**
@@ -43,14 +55,14 @@ export const addTripToLS = (data) => {
  * @param {string} elementId - element id to remove
  */
 export const removeTripFromLS = (elementId) => {
-  const lsTrips = TravelClient.LSActions.getByKey('trips');
+  const lsTrips = LSActions.getByKey('trips');
   const newLsTrips = lsTrips.slice();
 
   const elementIndex = newLsTrips.findIndex((trip) => trip.id === elementId);
 
   if (elementIndex > -1) {
     newLsTrips.splice(elementIndex, 1);
-    TravelClient.LSActions.saveByKey('trips', newLsTrips);
+    LSActions.saveByKey('trips', newLsTrips);
   }
 };
 
