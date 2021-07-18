@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { LSActions, addTrip, openModal } from '../helpers';
+import { LSActions, displayTrip, openModal } from '../helpers';
 import { serverUrl } from '../../constants';
 
 /**
@@ -15,8 +15,7 @@ export const getLocationInfo = (location, departing) => {
   )
     .then((res) => res.json())
     .then(function (res) {
-      console.log('getLocationInfo', res);
-      addTrip(res);
+      displayTrip(res);
       addTripToLS(res);
       hidePreloader();
     });

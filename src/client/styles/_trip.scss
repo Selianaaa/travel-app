@@ -11,12 +11,6 @@
     -4px -4px 14px color('yellow_light');
   @include baseColumn;
   align-items: flex-start;
-  // .cancel_button {
-  //   &::before,
-  //   &::after {
-  //     background: color('white');
-  //   }
-  // }
 
   @include mobileScreen {
     width: 100%;
@@ -103,13 +97,3 @@
     }
   }
 }
-
-// city: "London"
-// countryName: "United Kingdom"
-// lat: "51.50853"
-// lng: "-0.12574"
-// temp: 30.6
-// weather: {icon: "c01d", code: 800, description: "Clear sky"}
-// code: 800
-// description: "Clear sky"
-// icon: "c01d"

@@ -3,7 +3,7 @@ import { removeTripFromLS, getDayDifference } from '../helpers';
  * Add trip
  * @param {Object} data - trip data
  */
-export const addTrip = (data) => {
+export const displayTrip = (data) => {
   const { id, city, countryName, temp, weather, departing, photo } = data;
 
   const tripsSection = document.querySelector('#trips');

@@ -1,8 +1,7 @@
 header {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  @include baseRow(space-between);
   align-items: center;
   padding: 14px 40px;
   background: color('orange');
@@ -14,7 +13,7 @@ header {
 
 .header_title {
   @include baseText(22px, 600);
-  color: white;
+  color: color('white');
   text-transform: uppercase;
 
   @include mobileScreen {

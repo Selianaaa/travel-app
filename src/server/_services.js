@@ -4,6 +4,10 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+/**
+ * Get geo data from Geonames Api
+ * @param {string} city - city name
+ */
 const getGeonames = async (city) => {
   return await axios({
     method: 'get',
@@ -18,8 +22,8 @@ const getGeonames = async (city) => {
 
 /**
  * Get weather from WeatherBit Api
- * @param {number} lat
- * @param {number} lon
+ * @param {number} lat - latitude
+ * @param {number} lon - longitutte
  */
 const getWeather = (lat, lon) => {
   return axios({
@@ -33,24 +37,11 @@ const getWeather = (lat, lon) => {
   });
 };
 
-// // const getPicture = async (city, country) => {
-// const getPicture = async (city) => {
-//   return await axios({
-//     method: 'get',
-//     url: BASE_URLS.pixabay,
-//     params: {
-//       q: city,
-//       per_page: '1',
-//       category: 'travel',
-//       orientation: 'horizontal',
-//       image_type: 'photo',
-//       key: process.env.PIXABAY_API_KEY,
-//     },
-//   });
-// };
-
-// const getPicture = async (city, country) => {
-const getPicture = async (city) => {
+/**
+ * Get picture from Pexels Api
+ * @param {string} queryName
+ */
+const getPicture = async (queryName) => {
   return await axios({
     method: 'get',
     url: BASE_URLS.pexels,
@@ -58,7 +49,7 @@ const getPicture = async (city) => {
       Authorization: process.env.PEXELS_API_KEY,
     },
     params: {
-      query: city,
+      query: queryName,
       per_page: '1',
       orientation: 'landscape',
       size: 'medium',
@@ -66,7 +57,6 @@ const getPicture = async (city) => {
     },
   });
 };
-// Authorization
 
 exports.services = {
   getGeonames,
