@@ -55,8 +55,13 @@ export const addCancelButton = (tripCard) => {
   cancelButton.className = 'cancel_button';
 
   cancelButton.addEventListener('click', (e) => {
-    removeTripFromLS(e.target.parentNode.id);
-    e.target.parentNode.remove();
+    const trip = e.target.parentNode;
+    trip.style.maxHeight = '0';
+    trip.style.margin = '0';
+    trip.style.opacity = '0';
+
+    removeTripFromLS(trip.id);
+    trip.remove();
   });
 
   tripCard.appendChild(cancelButton);
