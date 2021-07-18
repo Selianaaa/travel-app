@@ -1,10 +1,20 @@
 import { removeTripFromLS, getDayDifference } from '../helpers';
+
 /**
  * Add trip
  * @param {Object} data - trip data
  */
 export const displayTrip = (data) => {
-  const { id, city, countryName, temp, weather, departing, photo } = data;
+  const {
+    id,
+    city,
+    countryName,
+    temp,
+    weather,
+    departing,
+    photo,
+    dayDifference,
+  } = data;
 
   const tripsSection = document.querySelector('#trips');
   const tripCard = addTripCard(tripsSection, id);
@@ -17,7 +27,7 @@ export const displayTrip = (data) => {
   addLeftContent(tripContent, photo);
 
   const rightContent = addRightContent(tripContent);
-  addRigthCardContent(tripCard, rightContent, departing);
+  addRigthCardContent(tripCard, rightContent, departing, dayDifference);
 
   addWeatherContent(tripCard, temp, weather.description);
 };
@@ -108,8 +118,14 @@ export const addLocation = (tripCard, city, countryName) => {
  * @param {HTMLDivElement} tripContent - trip card element
  * @param {HTMLDivElement} rightContent - rightContent element in trip card
  * @param {string} departing - date of departue
+ * @param {number} dayDifference - day difference
  */
-export const addRigthCardContent = (tripCard, rightContent, departing) => {
+export const addRigthCardContent = (
+  tripCard,
+  rightContent,
+  departing,
+  dayDifference
+) => {
   const departingElement = document.createElement('div');
   departingElement.className = 'trip_departing';
   departingElement.textContent = 'Departing: ';
@@ -126,7 +142,6 @@ export const addRigthCardContent = (tripCard, rightContent, departing) => {
 
   // write funct to count days / if < 0 then opacity on card
   const days = document.createElement('span');
-  const dayDifference = getDayDifference(departing);
   days.textContent = dayDifference;
   daysBeforeTrip.appendChild(days);
 

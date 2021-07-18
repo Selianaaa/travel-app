@@ -15,6 +15,7 @@ export const getLocationInfo = (location, departing) => {
   )
     .then((res) => res.json())
     .then(function (res) {
+      res.dayDifference = getDayDifference(res.departing);
       displayTrip(res);
       addTripToLS(res);
       hidePreloader();
@@ -27,9 +28,10 @@ export const getLocationInfo = (location, departing) => {
  */
 export const displayLsTrips = () => {
   const lsTrips = LSActions.getByKey('trips');
-  const newLsTrips = lsTrips.slice();
 
-  if (!newLsTrips) return openModal();
+  if (!lsTrips) return openModal();
+
+  const newLsTrips = lsTrips.slice();
 
   localStorage.clear();
 
