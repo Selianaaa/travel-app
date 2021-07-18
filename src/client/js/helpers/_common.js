@@ -29,7 +29,10 @@ export const getLocationInfo = (location, departing) => {
 export const displayLsTrips = () => {
   const lsTrips = LSActions.getByKey('trips');
 
-  if (!lsTrips) return openModal();
+  if (!lsTrips || !Array.isArray(lsTrips)) {
+    localStorage.clear();
+    return openModal();
+  }
 
   const newLsTrips = lsTrips.slice();
 
