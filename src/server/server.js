@@ -1,5 +1,6 @@
 var path = require('path');
 const express = require('express');
+const proxy = require('express-http-proxy');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { services } = require('./_services.js');
@@ -8,6 +9,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use('/proxy', proxy()));
 app.use(cors({ credentials: true }));
 app.use(express.static('dist'));
 
@@ -64,13 +66,20 @@ app.get('/get_location_info', async (req, res) => {
       });
     });
 
+  await services
+    .getPicture(locationData.city)
+    .then((res) => {
+      locationData = {
+        ...locationData,
+        photo: res.data.photos[0].src.medium,
+      };
+    })
+    .catch((error) => {
+      console.log('error: ', error.message);
+      return res.status(400).send({
+        message: error.message,
+      });
+    });
+
   res.status(200).send(locationData);
 });
-
-// const response = await services.getWeather(38.123, -78.543);
-// const data = await response.data;
-
-// res.status(200).send(locationData);
-// } catch (error) {
-//   console.log('error', error);
-// }

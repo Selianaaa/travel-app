@@ -35,7 +35,9 @@
   position: relative;
   width: 50%;
   height: 150px;
-  border: 1px solid red;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .right_content {

@@ -33,21 +33,40 @@ const getWeather = (lat, lon) => {
   });
 };
 
+// // const getPicture = async (city, country) => {
+// const getPicture = async (city) => {
+//   return await axios({
+//     method: 'get',
+//     url: BASE_URLS.pixabay,
+//     params: {
+//       q: city,
+//       per_page: '1',
+//       category: 'travel',
+//       orientation: 'horizontal',
+//       image_type: 'photo',
+//       key: process.env.PIXABAY_API_KEY,
+//     },
+//   });
+// };
+
 // const getPicture = async (city, country) => {
 const getPicture = async (city) => {
   return await axios({
     method: 'get',
-    url: BASE_URLS.pixabay,
+    url: BASE_URLS.pexels,
+    headers: {
+      Authorization: process.env.PEXELS_API_KEY,
+    },
     params: {
-      q: city,
+      query: city,
       per_page: '1',
-      category: 'travel',
-      orientation: 'horizontal',
-      image_type: 'photo',
+      orientation: 'landscape',
+      size: 'medium',
       key: process.env.PIXABAY_API_KEY,
     },
   });
 };
+// Authorization
 
 exports.services = {
   getGeonames,

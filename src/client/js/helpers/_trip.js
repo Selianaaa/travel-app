@@ -4,7 +4,7 @@ import { removeTripFromLS, getDayDifference } from '../helpers';
  * @param {Object} data - trip data
  */
 export const addTrip = (data) => {
-  const { id, city, countryName, temp, weather, departing } = data;
+  const { id, city, countryName, temp, weather, departing, photo } = data;
 
   const tripsSection = document.querySelector('#trips');
   const tripCard = addTripCard(tripsSection, id);
@@ -14,7 +14,7 @@ export const addTrip = (data) => {
 
   const tripContent = addTripContent(tripCard);
 
-  addLeftContent(tripContent);
+  addLeftContent(tripContent, photo);
 
   const rightContent = addRightContent(tripContent);
   addRigthCardContent(tripCard, rightContent, departing);
@@ -67,10 +67,12 @@ export const addTripContent = (tripCard) => {
 /**
  * Add trip card left content element
  * @param {HTMLDivElement} tripCard - tripContent element in trip card
+ * @param {string} photo - photo url
  */
-export const addLeftContent = (tripContent) => {
+export const addLeftContent = (tripContent, photo) => {
   const leftContent = document.createElement('div');
   leftContent.className = 'left_content';
+  leftContent.style.backgroundImage = `url(${photo})`;
   tripContent.appendChild(leftContent);
 };
 
