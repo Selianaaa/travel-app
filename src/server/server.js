@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { services } = require('./_services.js');
-
+const { helpers } = require('./_helpers.js');
 dotenv.config();
 
 const app = express();
@@ -29,6 +29,7 @@ app.get('/get_location_info', async (req, res) => {
     city: req.query.location,
     departing: req.query.departing,
     id: req.query.id,
+    dayDifference: helpers.getDayDifference(req.query.departing),
   };
 
   // get geodata from location name
@@ -43,7 +44,6 @@ app.get('/get_location_info', async (req, res) => {
         lat,
         lng,
       };
-      console.log(locationData);
     })
     .catch((error) => {
       console.log('error: ', error.message);

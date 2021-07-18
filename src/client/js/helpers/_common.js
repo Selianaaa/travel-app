@@ -15,7 +15,6 @@ export const getLocationInfo = (location, departing) => {
   )
     .then((res) => res.json())
     .then(function (res) {
-      res.dayDifference = getDayDifference(res.departing);
       displayTrip(res);
       addTripToLS(res);
       hidePreloader();
@@ -75,18 +74,18 @@ export const removeTripFromLS = (elementId) => {
   }
 };
 
-/**
- * Get days difference
- */
-export const getDayDifference = (date) => {
-  const currentMoment = moment();
-  const tripMoment = moment(date);
-  const momentDifference = moment.duration(tripMoment.diff(currentMoment));
+// /**
+//  * Get days difference
+//  */
+// export const getDayDifference = (date) => {
+//   const currentMoment = moment();
+//   const tripMoment = moment(date);
+//   const momentDifference = moment.duration(tripMoment.diff(currentMoment));
 
-  const daysDifference = Math.floor(momentDifference.asDays());
+//   const daysDifference = Math.floor(momentDifference.asDays());
 
-  return daysDifference;
-};
+//   return daysDifference;
+// };
 
 export const showPreloader = () => {
   document.querySelector('#preloader').style.display = 'flex';
