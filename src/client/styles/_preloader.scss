@@ -1,71 +1,45 @@
 #preloader {
-  position: relative;
-  margin-top: 15px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 50px);
+  width: 100px;
+  @include baseRow(space-between);
   display: none;
+
+  :nth-child(2) {
+    animation-delay: 400ms;
+  }
+
+  :nth-child(3) {
+    animation-delay: 800ms;
+  }
 }
 
-.preloader_ring {
-  box-shadow: 2px 2px 5px rgba(180, 137, 160, 0.521),
-    -2px -2px 5px rgba(244, 185, 216, 0.555),
-    inset 2px 2px 5px rgba(180, 137, 160, 0.521),
-    inset -2px -2px 5px rgba(244, 185, 216, 0.555);
-  border: 5px solid color('yellow');
+.preloader_dot {
+  position: relative;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: color('blue_dark');
+  animation: preloaderAnimation 1200ms infinite linear;
+  animation-fill-mode: backwards;
 }
 
-.first_ring {
-  height: 80px;
-  width: 80px;
-  animation: first_glow 2.5s infinite;
-}
-
-.second_ring {
-  height: 50px;
-  width: 50px;
-  animation: second_glow 2.5s infinite;
-}
-
-.third_ring {
-  height: 20px;
-  width: 20px;
-  animation: third_glow 2.5s infinite;
-}
-
-@keyframes first_glow {
-  60% {
-    background-color: color('yellow');
+@keyframes preloaderAnimation {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.6);
   }
-  80% {
-    background-color: $preloader_color;
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.6);
   }
   100% {
-    background-color: $preloader_color;
-  }
-}
-
-@keyframes second_glow {
-  40% {
-    background-color: color('yellow');
-  }
-  60% {
-    background-color: $preloader_color;
-  }
-  100% {
-    background-color: $preloader_color;
-  }
-}
-
-@keyframes third_glow {
-  20% {
-    background-color: color('yellow');
-  }
-  40% {
-    background-color: $preloader_color;
-  }
-  100% {
-    background-color: $preloader_color;
+    opacity: 0.4;
+    transform: scale(0.6);
   }
 }

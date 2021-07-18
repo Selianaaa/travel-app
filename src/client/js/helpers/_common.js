@@ -9,6 +9,7 @@ const serverUrl = 'http://localhost:8081';
  */
 export const getLocationInfo = (location, departing) => {
   const id = new Date().getTime();
+  showPreloader();
   fetch(
     `${serverUrl}/get_location_info?location=${location}&departing=${departing}&id=${id}`
   )
@@ -17,6 +18,7 @@ export const getLocationInfo = (location, departing) => {
       console.log('getLocationInfo', res);
       addTrip(res);
       addTripToLS(res);
+      hidePreloader();
     });
 };
 
@@ -81,7 +83,10 @@ export const getDayDifference = (date) => {
   return daysDifference;
 };
 
-// export const showPreloader = () => {
-//   document.querySelector('#preloader').style.display = 'block';
-//   document.getElementById('results').style.display = 'none';
-// };
+export const showPreloader = () => {
+  document.querySelector('#preloader').style.display = 'flex';
+};
+
+export const hidePreloader = () => {
+  document.querySelector('#preloader').style.display = 'none';
+};
