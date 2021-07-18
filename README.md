@@ -42,4 +42,4 @@ $ yarn build
 
 ## Demo
 
-<!-- Check the project [here](https://stupefied-kalam-22df43.netlify.app). -->
+Check the project [here](https://zealous-bassi-316946.netlify.app).
