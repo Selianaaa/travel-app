@@ -1,15 +1,18 @@
 import '../styles/index.scss';
-import { displayLsTrips, openModal, closeModal, handleSubmit } from './helpers';
+import { appInitialization } from './helpers';
 
-displayLsTrips();
+appInitialization();
 
-document
-  .querySelector('.desktop_header_button')
-  .addEventListener('click', openModal);
-document
-  .querySelector('.mobile_header_button')
-  .addEventListener('click', openModal);
-
-document.querySelector('#modal_close').addEventListener('click', closeModal);
-
-handleSubmit();
+if (process.env.NODE_ENV === 'production') {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registraion) => {
+          console.log('service worker registraion is successful');
+        });
+    });
+  } else {
+    console.log('service worker are not supported');
+  }
+}

@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { LSActions, addTrip, openModal } from '../helpers';
-const serverUrl = 'http://localhost:8081';
+import { serverUrl } from '../../constants';
 
 /**
  * Add trip

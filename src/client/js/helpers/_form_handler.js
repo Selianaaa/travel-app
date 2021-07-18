@@ -3,7 +3,7 @@ import { getLocationInfo, closeModal } from '../helpers';
 /**
  * Handle submit trip data
  */
-export const handleSubmit = () => {
+export const watchSubmit = () => {
   document.querySelector('#submit').addEventListener('click', function (event) {
     event.preventDefault();
 
