@@ -142,12 +142,13 @@ export const addRigthCardContent = (
 
   const daysBeforeTrip = document.createElement('div');
   daysBeforeTrip.className = 'trip_days_amount';
-  daysBeforeTrip.textContent = 'Days before trip: ';
+  daysBeforeTrip.textContent = `Days ${
+    dayDifference > 0 ? 'before' : 'after'
+  } trip: `;
   rightContent.appendChild(daysBeforeTrip);
 
-  // write funct to count days / if < 0 then opacity on card
   const days = document.createElement('span');
-  days.textContent = dayDifference;
+  days.textContent = Math.abs(dayDifference);
   daysBeforeTrip.appendChild(days);
 
   if (dayDifference < 0) {
