@@ -4,6 +4,12 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+// only for Udacity review
+const WEATHERBIT_API_KEY = '7c071ce6f7c546a7b4c807d5603a6ffc';
+const GEONAMES_API_KEY = 'selianaaaaa';
+const PEXELS_API_KEY =
+  '563492ad6f917000010000013ab331ed91d24002bd8cef8ace2f25e9';
+
 /**
  * Get geo data from Geonames Api
  * @param {string} city - city name
@@ -15,7 +21,7 @@ const getGeonames = async (city) => {
     params: {
       name: city,
       maxRows: 1,
-      username: process.env.GEONAMES_API_KEY,
+      username: GEONAMES_API_KEY,
     },
   });
 };
@@ -32,7 +38,7 @@ const getWeather = (lat, lon) => {
     params: {
       lat,
       lon,
-      key: process.env.WEATHERBIT_API_KEY,
+      key: WEATHERBIT_API_KEY,
     },
   });
 };
@@ -46,14 +52,13 @@ const getPicture = async (queryName) => {
     method: 'get',
     url: BASE_URLS.pexels,
     headers: {
-      Authorization: process.env.PEXELS_API_KEY,
+      Authorization: PEXELS_API_KEY,
     },
     params: {
       query: queryName,
       per_page: '1',
       orientation: 'landscape',
       size: 'medium',
-      key: process.env.PIXABAY_API_KEY,
     },
   });
 };
