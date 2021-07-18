@@ -42,4 +42,4 @@ $ yarn build
 
 ## Demo
 
-Check the project [here](https://zealous-bassi-316946.netlify.app).
+Check the project [here](seliana-travel-app.netlify.app).
