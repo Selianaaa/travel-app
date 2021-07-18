@@ -9,8 +9,7 @@
     "test": "jest",
     "server": "node src/server/server.js",
     "build": "webpack --config config/webpack.prod.js",
-    "dev": "webpack serve --config config/webpack.dev.js",
-    "start": "webpack serve --config config/webpack.dev.js & node src/server/server.js"
+    "dev": "webpack serve --config config/webpack.dev.js"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
