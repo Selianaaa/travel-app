@@ -28,6 +28,7 @@ app.get('/get_location_info', async (req, res) => {
     id: req.query.id,
   };
 
+  // get geodata from location name
   await services
     .getGeonames(req.query.location)
     .then((res) => {
@@ -48,6 +49,7 @@ app.get('/get_location_info', async (req, res) => {
       });
     });
 
+  // get weather from location coordinates
   await services
     .getWeather(locationData.lat, locationData.lng)
     .then((res) => {
@@ -56,7 +58,6 @@ app.get('/get_location_info', async (req, res) => {
         ...locationData,
         temp,
         weather,
-        // ...res.data.data[0],
       };
     })
     .catch((error) => {
@@ -66,8 +67,9 @@ app.get('/get_location_info', async (req, res) => {
       });
     });
 
+  // get picture from location name
   await services
-    .getPicture(locationData.city)
+    .getPicture(`${locationData.city} ${locationData.countryName}`)
     .then((res) => {
       locationData = {
         ...locationData,
@@ -76,9 +78,6 @@ app.get('/get_location_info', async (req, res) => {
     })
     .catch((error) => {
       console.log('error: ', error.message);
-      return res.status(400).send({
-        message: error.message,
-      });
     });
 
   res.status(200).send(locationData);

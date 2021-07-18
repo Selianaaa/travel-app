@@ -1,4 +1,4 @@
-import { dateIsValid, getLocationInfo, closeModal } from '../helpers';
+import { getLocationInfo, closeModal } from '../helpers';
 
 /**
  * Handle submit trip data
@@ -10,11 +10,11 @@ export const handleSubmit = () => {
     const location = document.getElementById('location').value.toLowerCase();
     const departing = document.getElementById('departing').value;
 
-    const dateValid = dateIsValid(departing);
-
-    if (dateValid) {
+    if (location.length > 0 && departing.length > 0) {
       getLocationInfo(location, departing);
       closeModal();
+    } else {
+      alert('Select departue date and write location');
     }
   });
 };

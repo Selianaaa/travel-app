@@ -28,9 +28,10 @@ export const getLocationInfo = (location, departing) => {
  */
 export const displayLsTrips = () => {
   const lsTrips = LSActions.getByKey('trips');
-
-  if (!lsTrips) return openModal();
   const newLsTrips = lsTrips.slice();
+
+  if (!newLsTrips) return openModal();
+
   localStorage.clear();
 
   newLsTrips.forEach((trip) => getLocationInfo(trip.city, trip.departing));

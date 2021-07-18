@@ -3,19 +3,43 @@
 ## Table of contents
 
 - [Description](#description)
-- [Setup](#server-setup)
+- [Project Setup](#project-setup)
+- [Demo](#demo)
 
 ## Description
 
-Project is made to utilize JS and Node.js skills.
-Glass Morphism design is used.
+Dynamic travel weather planning application that helps people plan trips by generating weather forecasts for the places they’re visiting.
 
-## Server Setup
+Neumorphism design is used.
 
-Install dependencies
-`npm install`
+## Project Setup
 
-To run server write following command in root directory:
-`node server.js`
+Get your privite API keys from https://www.weatherbit.io/, http://www.geonames.org/, https://www.pexels.com and set them up into the .env file.
 
-<!-- in env set up our keys for apis-->
+### Install dependencies
+
+```
+$ yarn install
+```
+
+### To run server for development:
+
+```
+$ yarn server
+```
+
+### Compiles and hot-reloads for development
+
+```
+$ yarn dev
+```
+
+### Compiles and minifies for production
+
+```
+$ yarn build
+```
+
+## Demo
+
+<!-- Check the project [here](https://stupefied-kalam-22df43.netlify.app). -->
